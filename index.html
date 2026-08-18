@@ -4,18 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mogu Mogu — Chewy. Fruity. Fun.</title>
-    <meta name="description" content="Mogu Mogu fruit drink with chewy nata de coco. Fresh, playful, and different.">
+    <meta name="description" content="Mogu Mogu fruit drink with chewy nata de coco. Fresh, playful, and different. Seven fruity flavors to explore.">
+    <meta name="keywords" content="Mogu Mogu, fruit drink, nata de coco, chewy, orange, coconut, melon, lychee, grape, strawberry, mango">
+    <meta name="author" content="Mogu Mogu">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Mogu Mogu — Chewy. Fruity. Fun.">
+    <meta property="og:description" content="Fruit drink with chewy nata de coco. Fresh, playful, and different. Seven fruity flavors to explore.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mogu-mogu.vercel.app/">
+    <meta property="og:image" content="assets/orange.webp">
+    <meta property="og:site_name" content="Mogu Mogu">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Mogu Mogu — Chewy. Fruity. Fun.">
+    <meta name="twitter:description" content="Fruit drink with chewy nata de coco. Fresh, playful, and different.">
+    <meta name="twitter:image" content="assets/orange.webp">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Mogu Mogu",
+        "url": "https://mogu-mogu.vercel.app/",
+        "description": "Fruit drink with chewy nata de coco. Fresh, playful, and different.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://mogu-mogu.vercel.app/?search={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Mogu Mogu",
+        "url": "https://mogu-mogu.vercel.app/",
+        "logo": "assets/logo-mogu.webp",
+        "sameAs": []
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Mochiy+Pop+One&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Mochiy+Pop+One&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=Mochiy+Pop+One&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="style.css">
+    <link rel="preload" as="image" href="assets/orange.webp" type="image/webp">
 </head>
 <body>
 
     <!-- ====== LOADING SCREEN ====== -->
     <div class="loading-screen">
         <div class="loading-content">
-            <img src="assets/logo-mogu.png" alt="Mogu Mogu Logo" class="loading-logo">
+            <img src="assets/logo-mogu.webp" alt="Mogu Mogu Logo" class="loading-logo">
             <span class="loading-text">Mogu Mogu</span>
         </div>
         <div class="loading-bar">
@@ -27,16 +74,28 @@
     <nav class="navbar">
         <div class="nav-inner">
             <a href="#hero" class="nav-brand">
-                <img src="assets/logo-mogu.png" alt="Mogu Mogu Logo" class="nav-logo">
+                <img src="assets/logo-mogu.webp" alt="Mogu Mogu Logo" class="nav-logo">
                 <span>Mogu Mogu</span>
             </a>
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
-            <label for="menu-toggle" class="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
-            </label>
+            </button>
             <div class="nav-links">
                 <a href="#hero" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">About</a>
+                <div class="nav-dropdown">
+                    <button class="nav-link dropdown-toggle" aria-expanded="false" aria-haspopup="true">Flavors <span class="dropdown-arrow">&#9662;</span></button>
+                    <div class="dropdown-menu">
+                        <a href="#flavors" class="dropdown-item" data-index="0">Orange</a>
+                        <a href="#flavors" class="dropdown-item" data-index="1">Coconut</a>
+                        <a href="#flavors" class="dropdown-item" data-index="2">Melon</a>
+                        <a href="#flavors" class="dropdown-item" data-index="3">Lychee</a>
+                        <a href="#flavors" class="dropdown-item" data-index="4">Grape</a>
+                        <a href="#flavors" class="dropdown-item" data-index="5">Strawberry</a>
+                        <a href="#flavors" class="dropdown-item" data-index="6">Mango</a>
+                    </div>
+                </div>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
         </div>
@@ -46,7 +105,7 @@
     <section class="hero" id="hero">
         <!-- Video Background -->
         <video class="hero-video" autoplay muted loop playsinline poster="mogu/frame-0001.jpg">
-            <source src="assets/hero-video.mp4" type="video/mp4">
+            <source src="assets/hero-video-optimized.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay" aria-hidden="true"></div>
 
@@ -75,10 +134,10 @@
 
             <div class="flavor-wrapper">
                 <div class="flavor-track">
-                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0DD; --fi-accent: #FF7A00;">
+                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0DD; --fi-accent: #FF7A00;" data-name="Orange" data-img="assets/orange.webp" data-desc="Citrusy, refreshing, and packed with chewy nata de coco. A classic that never gets old.">
                         <div class="fi-deco" aria-hidden="true"><span></span><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/orange.png" alt="Mogu Mogu Orange" width="200" height="280"></div>
+                        <div class="fi-img"><img src="assets/orange.webp" alt="Mogu Mogu Orange" width="200" height="280" loading="eager" fetchpriority="high"></div>
                         <div class="fi-info">
                             <span class="fi-name">Orange</span>
                             <span class="fi-desc">Citrus &bull; Fresh</span>
@@ -86,10 +145,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-medium" style="--fi-bg: #F1F5E8; --fi-accent: #A8C96B;">
+                    <div class="flavor-item fi-medium" style="--fi-bg: #F1F5E8; --fi-accent: #A8C96B;" data-name="Coconut" data-img="assets/Coconut.webp" data-desc="Creamy, tropical coconut paired with chewy nata de coco. Smooth and satisfying.">
                         <div class="fi-deco" aria-hidden="true"><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/Coconut.png" alt="Mogu Mogu Coconut" width="180" height="250"></div>
+                        <div class="fi-img"><img src="assets/Coconut.webp" alt="Mogu Mogu Coconut" width="180" height="250"></div>
                         <div class="fi-info">
                             <span class="fi-name">Coconut</span>
                             <span class="fi-desc">Creamy &bull; Classic</span>
@@ -97,10 +156,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-large" style="--fi-bg: #F1F7D8; --fi-accent: #B8DD45;">
+                    <div class="flavor-item fi-large" style="--fi-bg: #F1F7D8; --fi-accent: #B8DD45;" data-name="Melon" data-img="assets/melon.webp" data-desc="Cool, sweet melon flavor with the signature chewy nata de coco bite. Refreshing in every sip.">
                         <div class="fi-deco" aria-hidden="true"><span></span><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/melon.png" alt="Mogu Mogu Melon" width="200" height="280"></div>
+                        <div class="fi-img"><img src="assets/melon.webp" alt="Mogu Mogu Melon" width="200" height="280"></div>
                         <div class="fi-info">
                             <span class="fi-name">Melon</span>
                             <span class="fi-desc">Cool &bull; Sweet</span>
@@ -108,10 +167,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0F4; --fi-accent: #F58CA8;">
+                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0F4; --fi-accent: #F58CA8;" data-name="Lychee" data-img="assets/lychee.webp" data-desc="Delicate floral lychee meets chewy nata de coco. Sweet, fragrant, and unforgettable.">
                         <div class="fi-deco" aria-hidden="true"><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/lychee.png" alt="Mogu Mogu Lychee" width="200" height="280"></div>
+                        <div class="fi-img"><img src="assets/lychee.webp" alt="Mogu Mogu Lychee" width="200" height="280"></div>
                         <div class="fi-info">
                             <span class="fi-name">Lychee</span>
                             <span class="fi-desc">Floral &bull; Fruity</span>
@@ -119,10 +178,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-medium" style="--fi-bg: #F3ECF8; --fi-accent: #75439A;">
+                    <div class="flavor-item fi-medium" style="--fi-bg: #F3ECF8; --fi-accent: #75439A;" data-name="Grape" data-img="assets/grape.webp" data-desc="Bold, juicy grape flavor with a playful chewy texture. A little sweet, a lot of fun.">
                         <div class="fi-deco" aria-hidden="true"><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/grape.png" alt="Mogu Mogu Grape" width="185" height="260"></div>
+                        <div class="fi-img"><img src="assets/grape.webp" alt="Mogu Mogu Grape" width="185" height="260"></div>
                         <div class="fi-info">
                             <span class="fi-name">Grape</span>
                             <span class="fi-desc">Bold &bull; Juicy</span>
@@ -130,10 +189,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0F2; --fi-accent: #F04F62;">
+                    <div class="flavor-item fi-large" style="--fi-bg: #FFF0F2; --fi-accent: #F04F62;" data-name="Strawberry" data-img="assets/strawberry.webp" data-desc="Sweet berry goodness meets chewy nata de coco. Fun, fruity, and absolutely delicious.">
                         <div class="fi-deco" aria-hidden="true"><span></span><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/strawberry.png" alt="Mogu Mogu Strawberry" width="200" height="280"></div>
+                        <div class="fi-img"><img src="assets/strawberry.webp" alt="Mogu Mogu Strawberry" width="200" height="280"></div>
                         <div class="fi-info">
                             <span class="fi-name">Strawberry</span>
                             <span class="fi-desc">Berry &bull; Fun</span>
@@ -141,10 +200,10 @@
                         </div>
                     </div>
 
-                    <div class="flavor-item fi-medium" style="--fi-bg: #FFF4D8; --fi-accent: #FFB300;">
+                    <div class="flavor-item fi-medium" style="--fi-bg: #FFF4D8; --fi-accent: #FFB300;" data-name="Mango" data-img="assets/mango.webp" data-desc="Golden tropical mango flavor with chewy nata de coco. Sunshine in a bottle.">
                         <div class="fi-deco" aria-hidden="true"><span></span></div>
                         <div class="fi-brand">MOGU MOGU</div>
-                        <div class="fi-img"><img src="assets/mango.png" alt="Mogu Mogu Mango" width="185" height="260"></div>
+                        <div class="fi-img"><img src="assets/mango.webp" alt="Mogu Mogu Mango" width="185" height="260"></div>
                         <div class="fi-info">
                             <span class="fi-name">Mango</span>
                             <span class="fi-desc">Tropical &bull; Golden</span>
@@ -156,29 +215,39 @@
         </div>
     </section>
 
+    <!-- Flavor detail modal -->
+    <div class="flavor-modal" id="flavor-modal" role="dialog" aria-modal="true" aria-labelledby="modal-flavor-name" hidden>
+        <div class="modal-backdrop" data-modal-close></div>
+        <div class="modal-content">
+            <button class="modal-close" type="button" aria-label="Close flavor details" data-modal-close>&times;</button>
+            <div class="modal-image"><img id="modal-flavor-image" src="assets/orange.webp" alt=""></div>
+            <p class="modal-kicker">MOGU MOGU</p>
+            <h2 id="modal-flavor-name">Orange</h2>
+            <p id="modal-flavor-description">Citrusy, refreshing, and packed with chewy nata de coco.</p>
+            <a href="#contact" class="btn-primary modal-cta" data-modal-close>Order this flavor <span class="btn-arrow">&rarr;</span></a>
+        </div>
+    </div>
+
     <!-- ====== 04 ABOUT ====== -->
     <section class="about" id="about">
         <div class="about-inner">
-            <!-- Heading di atas, urutan mobile: nomor 1 -->
             <div class="about-heading">
                 <p class="section-label">About Mogu Mogu</p>
                 <h2 class="about-title">Fruit flavor meets<br>chewy nata de coco.</h2>
             </div>
 
-            <!-- Botol di tengah, urutan mobile: nomor 2 -->
             <div class="about-visual">
                 <div class="about-all-bottles">
-                    <img src="assets/orange.png" alt="Mogu Mogu Orange" class="bottle bottle-1">
-                    <img src="assets/Coconut.png" alt="Mogu Mogu Coconut" class="bottle bottle-2">
-                    <img src="assets/melon.png" alt="Mogu Mogu Melon" class="bottle bottle-3">
-                    <img src="assets/lychee.png" alt="Mogu Mogu Lychee" class="bottle bottle-4">
-                    <img src="assets/grape.png" alt="Mogu Mogu Grape" class="bottle bottle-5">
-                    <img src="assets/strawberry.png" alt="Mogu Mogu Strawberry" class="bottle bottle-6">
-                    <img src="assets/mango.png" alt="Mogu Mogu Mango" class="bottle bottle-7">
+                    <img src="assets/orange.webp" alt="Mogu Mogu Orange" class="bottle bottle-1">
+                    <img src="assets/Coconut.webp" alt="Mogu Mogu Coconut" class="bottle bottle-2">
+                    <img src="assets/melon.webp" alt="Mogu Mogu Melon" class="bottle bottle-3">
+                    <img src="assets/lychee.webp" alt="Mogu Mogu Lychee" class="bottle bottle-4">
+                    <img src="assets/grape.webp" alt="Mogu Mogu Grape" class="bottle bottle-5">
+                    <img src="assets/strawberry.webp" alt="Mogu Mogu Strawberry" class="bottle bottle-6">
+                    <img src="assets/mango.webp" alt="Mogu Mogu Mango" class="bottle bottle-7">
                 </div>
             </div>
 
-            <!-- Deskripsi di bawah, urutan mobile: nomor 3 -->
             <div class="about-content">
                 <p class="about-desc">Mogu Mogu brings together refreshing fruit flavors and chewy nata de coco for a drink that's simple, fun, and different from the ordinary.</p>
                 <a href="#flavors" class="btn-text">Read More <span>&rarr;</span></a>
@@ -208,9 +277,82 @@
                     </div>
 
                     <div class="form-row">
-                        <div class="form-group">
+                        <div class="form-group phone-group">
                             <label for="po-phone">Phone Number</label>
-                            <input type="tel" id="po-phone" name="phone" placeholder="+62 8xx" required>
+                            <div class="phone-input-wrap">
+                                <div class="country-picker">
+                                    <button type="button" class="country-toggle" aria-expanded="false" aria-haspopup="listbox">
+                                        <span class="selected-flag" id="cp-flag"><img src="assets/flag-indonesia.webp" alt="ID" class="flag-img"></span>
+                                        <span class="selected-code" id="cp-code">+62</span>
+                                        <svg class="country-arrow" width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </button>
+                                    <div class="country-menu" role="listbox">
+                                        <div class="country-search-wrap">
+                                            <svg class="country-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                            <input type="text" class="country-search" placeholder="Search country..." aria-label="Search country">
+                                        </div>
+                                        <div class="country-list">
+                                            <button type="button" class="country-option selected" data-code="+62" data-flag="assets/flag-indonesia.webp" data-country="Indonesia">
+                                                <span class="co-flag"><img src="assets/flag-indonesia.webp" alt="ID" class="flag-img"></span>
+                                                <span class="co-name">Indonesia</span>
+                                                <span class="co-code">+62</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+60" data-flag="assets/flag-malaysia.webp" data-country="Malaysia">
+                                                <span class="co-flag"><img src="assets/flag-malaysia.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">Malaysia</span>
+                                                <span class="co-code">+60</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+65" data-flag="assets/flag-singapore.webp" data-country="Singapore">
+                                                <span class="co-flag"><img src="assets/flag-singapore.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">Singapore</span>
+                                                <span class="co-code">+65</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+66" data-flag="assets/flag-thailand.webp" data-country="Thailand">
+                                                <span class="co-flag"><img src="assets/flag-thailand.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">Thailand</span>
+                                                <span class="co-code">+66</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+84" data-flag="assets/flag-vietnam.webp" data-country="Vietnam">
+                                                <span class="co-flag"><img src="assets/flag-vietnam.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">Vietnam</span>
+                                                <span class="co-code">+84</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+86" data-flag="assets/flag-china.webp" data-country="China">
+                                                <span class="co-flag"><img src="assets/flag-china.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">China</span>
+                                                <span class="co-code">+86</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            <button type="button" class="country-option" data-code="+81" data-flag="assets/flag-japan.webp" data-country="Japan">
+                                                <span class="co-flag"><img src="assets/flag-japan.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">Japan</span>
+                                                <span class="co-code">+81</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            
+                                            
+                                            
+                                            
+                                            <button type="button" class="country-option" data-code="+1" data-flag="assets/flag-us.webp" data-country="United States">
+                                                <span class="co-flag"><img src="assets/flag-us.webp" alt="flag" class="flag-img"></span>
+                                                <span class="co-name">United States</span>
+                                                <span class="co-code">+1</span>
+                                                <svg class="co-check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                                            </button>
+                                            
+                                            
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <input type="tel" id="po-phone" name="phone" placeholder="812 3456 7890" required>
+                            </div>
+                            <p class="form-error" data-phone-error></p>
                         </div>
                         <div class="form-group">
                             <label for="po-email">Email</label>
@@ -228,43 +370,43 @@
                         <div class="po-flavor-grid">
                             <input type="radio" name="flavor" id="po-orange" value="orange" checked>
                             <label for="po-orange" class="po-flavor-label">
-                                <img src="assets/orange.png" alt="Orange">
+                                <img src="assets/orange.webp" alt="Orange">
                                 <span>Orange</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-coconut" value="coconut">
                             <label for="po-coconut" class="po-flavor-label">
-                                <img src="assets/Coconut.png" alt="Coconut">
+                                <img src="assets/Coconut.webp" alt="Coconut">
                                 <span>Coconut</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-melon" value="melon">
                             <label for="po-melon" class="po-flavor-label">
-                                <img src="assets/melon.png" alt="Melon">
+                                <img src="assets/melon.webp" alt="Melon">
                                 <span>Melon</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-lychee" value="lychee">
                             <label for="po-lychee" class="po-flavor-label">
-                                <img src="assets/lychee.png" alt="Lychee">
+                                <img src="assets/lychee.webp" alt="Lychee">
                                 <span>Lychee</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-grape" value="grape">
                             <label for="po-grape" class="po-flavor-label">
-                                <img src="assets/grape.png" alt="Grape">
+                                <img src="assets/grape.webp" alt="Grape">
                                 <span>Grape</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-strawberry" value="strawberry">
                             <label for="po-strawberry" class="po-flavor-label">
-                                <img src="assets/strawberry.png" alt="Strawberry">
+                                <img src="assets/strawberry.webp" alt="Strawberry">
                                 <span>Strawberry</span>
                             </label>
 
                             <input type="radio" name="flavor" id="po-mango" value="mango">
                             <label for="po-mango" class="po-flavor-label">
-                                <img src="assets/mango.png" alt="Mango">
+                                <img src="assets/mango.webp" alt="Mango">
                                 <span>Mango</span>
                             </label>
                         </div>
@@ -292,6 +434,9 @@
                     <p class="form-disclaimer">
                         By placing an order, you agree that we may contact you via WhatsApp for confirmation.
                     </p>
+                    <div class="form-success" id="form-success" hidden>
+                        <p>Thanks! Your message has been sent.</p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -304,5 +449,6 @@
         </div>
     </footer>
 
+    <script src="script.js" defer></script>
 </body>
 </html>

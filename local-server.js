@@ -8,6 +8,8 @@ const MIME = {
     '.css': 'text/css',
     '.js': 'application/javascript',
     '.png': 'image/png',
+    '.webp': 'image/webp',
+    '.mp4': 'video/mp4',
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/jpeg',
     '.gif': 'image/gif',
@@ -32,7 +34,13 @@ http.createServer((req, res) => {
             return;
         }
         const ext = path.extname(filePath).toLowerCase();
-        res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
+        const cacheControl = ext === '.html'
+            ? 'no-cache'
+            : 'public, max-age=31536000, immutable';
+        res.writeHead(200, {
+            'Content-Type': MIME[ext] || 'application/octet-stream',
+            'Cache-Control': cacheControl,
+        });
         res.end(data);
     });
 }).listen(PORT, () => {
